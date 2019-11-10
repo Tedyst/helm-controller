@@ -147,7 +147,6 @@ func (c *Controller) OnHelmRemove(key string, chart *helmv1.HelmChart) (*helmv1.
 }
 
 func job(chart *helmv1.HelmChart) (*batch.Job, *core.ConfigMap) {
-	TTL := int32(1000)
 	backoffLimit := int32(1000)
 	valuesHash := sha256.Sum256([]byte(chart.Spec.ValuesContent))
 
@@ -168,8 +167,7 @@ func job(chart *helmv1.HelmChart) (*batch.Job, *core.ConfigMap) {
 			},
 		},
 		Spec: batch.JobSpec{
-			TTLSecondsAfterFinished: &TTL,
-			BackoffLimit:            &backoffLimit,
+			BackoffLimit: &backoffLimit,
 			Template: core.PodTemplateSpec{
 				ObjectMeta: meta.ObjectMeta{
 					Labels: map[string]string{

@@ -3,6 +3,7 @@ module github.com/Tedyst/helm-controller
 go 1.12
 
 require (
+	github.com/rancher/helm-controller v0.2.2
 	github.com/rancher/wrangler v0.1.4
 	github.com/rancher/wrangler-api v0.1.4
 	github.com/sirupsen/logrus v1.4.1
