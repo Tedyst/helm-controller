@@ -1,4 +1,4 @@
-module github.com/rancher/helm-controller
+module github.com/Tedyst/helm-controller
 
 go 1.12
 
